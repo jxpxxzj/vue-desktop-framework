@@ -141,9 +141,7 @@ this.$storage.has('foobar', (error, hasKey) => {
 
 **Example**  
 ```js
-const storage = require('electron-json-storage');
-
-storage.keys(function(error, keys) {
+this.$storage.keys(function(error, keys) {
   if (error) throw error;
 
   for (var key of keys) {

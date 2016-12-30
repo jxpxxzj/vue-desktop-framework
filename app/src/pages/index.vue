@@ -29,7 +29,7 @@
         <p>
             If you have any issues, please
             file an issue at this seed's
-            <a href='#' @click="link('https://github.com/jxpxxzj/electron-vue-boilerplate')">
+            <a href='#' @click="link('https://github.com/jxpxxzj/vue-desktop-framework')">
                 repository</a>.
         </p>
         <router-link :to="{ path:'/page'}">Navigation</router-link>

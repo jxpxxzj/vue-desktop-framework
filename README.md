@@ -1,0 +1,78 @@
+# vue-desktop-framework
+A framework for making hybrid desktop app powered by electron and vue.
+
+Mostly for my future project.
+
+Forked from [pastahito/electron-vue-webpack](https://github.com/pastahito/electron-vue-webpack).
+
+## Install
+``` bash
+# Clone the repository once
+$ git clone https://github.com/jxpxxzj/vue-desktop-framework
+
+# Go into the repository (rename it as you wish)
+$ cd vue-desktop-framework
+
+# Install the dependencies once
+$ npm install
+```
+
+## Usage
+Run this two commands in two different prompts to start developing with hot reloading.
+``` bash
+# Webpack builds once and watches to apply only the changes
+$ npm run dev
+
+# Start you electron app
+$ npm start
+```
+
+## What's included
+- Vue 
+- Vue-Router
+- Vue-Resource
+- Vuex
+- Element-UI & normalize.css
+- jQuery
+- request-progress
+- webpack
+- ESLint & eslint-vue-plugin
+
+## Template structure
+```
+├── vue-desktop-framework/              # Your project's name
+    ├── app/
+        ├── build/                      # Webpack will bundle your css/js/img here
+        ├── src/
+            ├── assets/                 # Images go here
+
+            ├── components/             # Webcomponents go here
+
+            ├── pages/                  # Pages go here
+
+            ├── plugins/                # Vue plugins
+
+            ├── entry.js                # App entry
+
+            ├── routes.js               # Route table
+
+            ├── store.js                # Vuex store.
+
+            ├── App.vue                 # Global js and css can go here.
+
+        ├── index.html                  # Single Page Application HTML, it only uses build's files
+
+    ├── docs/                           # Framework documentations
+
+    ├── main.js                         # Electron app init
+    ├── package.json
+    ├── webpack.config.js               # Minimal webpack setup
+```
+
+# Todo
+- [ ] Production mode
+- [ ] Support electron-packager and electron-builder
+- [ ] Better documentations.
+
+## License
+MIT

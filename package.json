@@ -1,39 +1,39 @@
 {
-    "name": "vue-desktop-framework",
-    "version": "1.0.0",
-    "description": "A framework for making hybrid desktop app powered by electron and vue.",
-    "main": "main.js",
-    "scripts": {
-        "dev": "cross-env NODE_ENV=development && webpack",
-        "start": "electron ."
-    },
-    "author": "Zijin Xiao <ZijinX@outlook.com>",
-    "repository": "jxpxxzj/vue-desktop-framework",
-    "license": "MIT",
-    "dependencies": {
-        "electron-json-storage": "^2.1.0",
-        "element-ui": "^1.0.9",
-        "fs-extra": "^1.0.0",
-        "jquery": "^3.1.1",
-        "normalize.css": "^5.0.0",
-        "request-progress": "^3.0.0",
-        "vue": "^2.0.1",
-        "vue-resource": "^1.0.3",
-        "vue-router": "^2.1.1",
-        "vuex": "^2.1.1",
-        "vuex-router-sync": "^4.0.2"
-    },
-    "devDependencies": {
-        "cross-env": "^3.1.3",
-        "css-loader": "^0.25.0",
-        "electron": "^1.4.3",
-        "electron-reload": "^1.0.2",
-        "eslint": "^3.12.2",
-        "eslint-config-vue": "^2.0.1",
-        "eslint-plugin-vue": "^1.0.0",
-        "file-loader": "^0.9.0",
-        "style-loader": "^0.13.1",
-        "vue-loader": "^9.5.1",
-        "webpack": "^2.1.0-beta.22"
-    }
+  "name": "vue-desktop-framework",
+  "version": "1.0.0",
+  "description": "A framework for making hybrid desktop app powered by electron and vue.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development && webpack",
+    "start": "electron ."
+  },
+  "author": "Zijin Xiao <ZijinX@outlook.com>",
+  "repository": "jxpxxzj/vue-desktop-framework",
+  "license": "MIT",
+  "dependencies": {
+    "electron-json-storage": "^2.1.0",
+    "element-ui": "^1.0.9",
+    "fs-extra": "^1.0.0",
+    "jquery": "^3.1.1",
+    "normalize.css": "^5.0.0",
+    "request-progress": "^3.0.0",
+    "vue": "^2.0.1",
+    "vue-resource": "^1.0.3",
+    "vue-router": "^2.1.1",
+    "vuex": "^2.1.1",
+    "vuex-router-sync": "^4.0.2"
+  },
+  "devDependencies": {
+    "cross-env": "^3.1.3",
+    "css-loader": "^0.25.0",
+    "electron": "^1.4.3",
+    "electron-reload": "^1.0.2",
+    "eslint": "^3.12.2",
+    "eslint-config-vue": "^2.0.1",
+    "eslint-plugin-vue": "^1.0.0",
+    "file-loader": "^0.9.0",
+    "style-loader": "^0.13.1",
+    "vue-loader": "^9.5.1",
+    "webpack": "^2.1.0-beta.22"
+  }
 }

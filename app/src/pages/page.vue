@@ -44,13 +44,14 @@ export default {
         },
         beginDownload () {
             const vm = this;
-            vm.$progress(vm.$request('https://nodejs.org/dist/v6.9.2/node-v6.9.2-x64.msi'))
+            vm.$progress(vm.$request('http://dldir1.qq.com/qqfile/qq/QQ8.8/19876/QQ8.8.exe'))
             .on('progress', (state) => {
                 if (state.percent !== undefined) {
                     vm.downprogress = Math.round(state.percent * 100.0);
+                    this.$electron.remote.getCurrentWindow().setProgressBar(state.percent);
                 }
                 vm.speed = (state.speed / 1000).toFixed(2);
-                if (state.time.remaining != null) {
+                if (state.time.remaining !== null) {
                     vm.remaining = state.time.remaining.toFixed(2);
                 }
             })
@@ -66,7 +67,7 @@ export default {
                     message: 'Download successfully'
                 });
             })
-            .pipe(vm.$fs.createWriteStream('node-v6.9.2-x64.msi'));
+            .pipe(vm.$fs.createWriteStream('E:\QQ8.8.exe'));
         },
         openSaveDialog () {
             const vm = this;
@@ -83,7 +84,7 @@ export default {
                 });
             });
         },
-        notifications () {
+        notification () {
             const n = new window.Notification('Hello!', { body: 'Notification world!' });
             n.onclick = () => {
                 window.alert('clicked');

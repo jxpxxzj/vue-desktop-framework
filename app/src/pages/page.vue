@@ -23,6 +23,7 @@
             :on-progress="upload_onprogress"
             :on-success="upload_onsuccess"
             :multiple=true
+            :data="{ folder: this.folder }"
         >
         <el-button size="small" type="primary">点击上传</el-button>
         </el-upload>
@@ -42,7 +43,8 @@ export default {
             content: '',
             downprogress: 0.0,
             speed: 0.0,
-            remaining: ''
+            remaining: '',
+            folder:'27bed5c2302c4eb4be387e32',
         };
     },
     methods: {
@@ -54,7 +56,7 @@ export default {
             });
         },
         beginDownload () {
-            this.$progress(this.$request('http://localhost:8958/api/Test/Download?objectId=587e4c8f59f9261c6cfb6076'))
+            this.$progress(this.$request('http://localhost:8958/api/Test/Download?objectId=587f9598232a2657304a742b'))
             .auth('Parry', '123456', true)
             .on( 'response', (res) => {
                 const contentDisposition = res.headers['content-disposition'];

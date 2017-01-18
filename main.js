@@ -36,7 +36,7 @@ app.on('ready', () => {
     });
 });
 
-app.on('login', function (event, webContents, request, authInfo, callback) {
+app.on('login', (event, webContents, request, authInfo, callback) => {
     event.preventDefault();
     callback('Parry', '123456');
 });

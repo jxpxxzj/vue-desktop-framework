@@ -1,5 +1,6 @@
 # vue-desktop-framework
-A framework for making hybrid desktop app powered by electron and vue.
+A framework for making hybrid desktop app powered by electron and vue.  
+一个基于 electron 和 vue 构建的, 用于编写 Hybrid 桌面应用的框架.
 
 Mostly for my future project.
 
@@ -34,7 +35,7 @@ $ npm start
 - Vuex
 - Element-UI & normalize.css
 - jQuery
-- request-progress
+- request & request-progress
 - webpack
 - ESLint & eslint-vue-plugin
 
@@ -56,7 +57,7 @@ $ npm start
 
             ├── routes.js               # Route table
 
-            ├── store.js                # Vuex store.
+            ├── store.js                # Vuex store
 
             ├── App.vue                 # Global js and css can go here.
 

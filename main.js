@@ -35,3 +35,8 @@ app.on('ready', () => {
         mainWindow = null;
     });
 });
+
+app.on('login', function (event, webContents, request, authInfo, callback) {
+    event.preventDefault();
+    callback('Parry', '123456');
+});

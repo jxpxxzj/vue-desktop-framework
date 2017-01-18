@@ -17,6 +17,17 @@
         <el-button @click="notification">notification</el-button>
         <el-button @click="config">config</el-button>
         <el-button @click="windows">windows</el-button>
+        
+        <el-upload
+            action="http://localhost:8958/api/Test/Upload"
+            :on-progress="upload_onprogress"
+            :on-success="upload_onsuccess"
+            :multiple=true
+        >
+        <el-button size="small" type="primary">点击上传</el-button>
+        </el-upload>
+
+        <el-button @click="tryLogin">tryLogin</el-button>
     </div>
 </template>
 <script>
@@ -43,40 +54,51 @@ export default {
             });
         },
         beginDownload () {
-            const vm = this;
-            vm.$progress(vm.$request('http://dldir1.qq.com/qqfile/qq/QQ8.8/19876/QQ8.8.exe'))
+            this.$progress(this.$request('http://localhost:8958/api/Test/Download?objectId=587e4c8f59f9261c6cfb6076'))
+            .auth('Parry', '123456', true)
+            .on( 'response', (res) => {
+                const contentDisposition = res.headers['content-disposition'];
+                const match = contentDisposition && contentDisposition.match(/(filename=|filename\*='')(.*)$/);
+                const fnt = match && match[2] || 'default-filename.out';
+                const filename = fnt.split(';')[0];
+                const fws = this.$fs.createWriteStream( 'E:/' + filename );
+                res.pipe( fws );
+             })
             .on('progress', (state) => {
                 if (state.percent !== undefined) {
-                    vm.downprogress = Math.round(state.percent * 100.0);
+                    this.downprogress = Math.round(state.percent * 100.0);
                     this.$electron.remote.getCurrentWindow().setProgressBar(state.percent);
                 }
-                vm.speed = (state.speed / 1000).toFixed(2);
+                this.speed = (state.speed / 1000).toFixed(2);
                 if (state.time.remaining !== null) {
-                    vm.remaining = state.time.remaining.toFixed(2);
+                    this.remaining = state.time.remaining.toFixed(2);
                 }
             })
             .on('error', () => {
 
             })
             .on('end', () => {
-                vm.downprogress = 100;
-                vm.remaining = 0;
-
-                vm.$notify.success({
+                this.downprogress = 100;
+                this.remaining = 0;
+                this.$electron.remote.getCurrentWindow().setProgressBar(0);
+                this.$notify.success({
                     title: 'Success',
                     message: 'Download successfully'
                 });
+                const n = new window.Notification('Success', { body: 'Download successfully' });
+                n.onclick = () => {
+                    window.alert('clicked');
+                };
+
             })
-            .pipe(vm.$fs.createWriteStream('E:\QQ8.8.exe'));
         },
         openSaveDialog () {
-            const vm = this;
-            vm.$electron.remote.dialog.showSaveDialog((fileName) => {
+            this.$electron.remote.dialog.showSaveDialog((fileName) => {
                 if (fileName === undefined) {
                     console.log("You didn't save the file");
                     return;
                 }
-                vm.$fs.writeFile(fileName, vm.content, (err) => {
+                this.$fs.writeFile(fileName, this.content, (err) => {
                     if (err) {
                         window.alert('An error ocurred creating the file ' + err.message);
                     };
@@ -102,6 +124,16 @@ export default {
             console.log(this.$electron.remote);
             const win = this.$electron.remote.getCurrentWindow();
             win.setProgressBar(0.5);
+        },
+        upload_onprogress(event, file, fileList) {
+            this.$electron.remote.getCurrentWindow().setProgressBar(event.percent / 100);        
+        },
+        upload_onsuccess (response, file, fileList) {
+            console.log(response);
+            this.$electron.remote.getCurrentWindow().setProgressBar(0);  
+        },
+        tryLogin () {
+            
         }
     }
 };

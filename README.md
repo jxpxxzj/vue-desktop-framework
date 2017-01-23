@@ -28,7 +28,7 @@ $ npm run dev
 $ npm start
 ```
 ## Package
-This commands use ```electron-packager```, and will generate ia32@win32 exe.
+This command use ```electron-packager```, and will generate ia32@win32 exe.
 ``` bash
 $ npm run build
 ```
@@ -65,7 +65,7 @@ The executable file will be in ```./package```.
 
             ├── store.js                # Vuex store
 
-            ├── App.vue                 # Global js and css can go here.
+            ├── App.vue                 # Global js and css can go here
 
         ├── index.html                  # Single Page Application HTML, it only uses build's files
 
@@ -74,6 +74,8 @@ The executable file will be in ```./package```.
     ├── main.js                         # Electron app init
     ├── package.json
     ├── webpack.config.js               # Minimal webpack setup
+
+    ├── webpack.release.config.js       # Production webpack setup
 ```
 
 # Todo

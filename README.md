@@ -27,6 +27,12 @@ $ npm run dev
 # Start you electron app
 $ npm start
 ```
+## Package
+This commands use ```electron-packager```, and will generate ia32@win32 exe.
+``` bash
+$ npm run build
+```
+The executable file will be in ```./package```.
 
 ## What's included
 - Vue 
@@ -71,9 +77,9 @@ $ npm start
 ```
 
 # Todo
-- [ ] Production mode
-- [ ] Support electron-packager and electron-builder
+- [x] Production mode
+- [x] Support electron-packager
 - [ ] Better documentations.
 
 ## License
-MIT
+[MIT](http://opensource.org/licenses/MIT)

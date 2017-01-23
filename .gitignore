@@ -39,3 +39,6 @@ jspm_packages
 
 # Visual Studio Code work directory
 .vscode
+
+# electron-packager directory
+package

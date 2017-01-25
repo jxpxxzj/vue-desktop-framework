@@ -7,7 +7,6 @@ if (process.env.NODE_ENV === 'development') {
     require('electron-reload')(__dirname);
 }
 
-
 // To avoid being garbage collected
 let mainWindow;
 

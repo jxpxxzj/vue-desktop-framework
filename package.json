@@ -4,9 +4,9 @@
   "description": "A framework for making hybrid desktop app powered by electron and vue.",
   "main": "main.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development && webpack",
-    "start": "electron .",
-    "build": "cross-env NODE_ENV=PRODUCTION && webpack --progress --config webpack.release.config.js && electron-packager . App --plantform=win32 --out=./package --ignore=node_modules/electron-* --arch=ia32 --prune --ignore=app/src --ignore=docs --ignore=.git --ignore=README.md --ignore=debug.log --ignore=LICENSE --ignore=.eslintrc --ignore=.gitignore --ignore=webpack.config.js --ignore=webpack.release.config.js --ignore=.vscode --overwrite --asar=true --download.mirror=https://npm.taobao.org/mirrors/electron/"
+    "dev": "cross-env NODE_ENV=development webpack",
+    "start": "cross-env NODE_ENV=development electron .",
+    "build": "cross-env NODE_ENV=PRODUCTION webpack --progress --config webpack.release.config.js && cross-env NODE_ENV=PRODUCTION electron-packager . App --plantform=win32 --out=./package --ignore=node_modules/electron-* --arch=ia32 --prune --ignore=app/src --ignore=docs --ignore=.git --ignore=README.md --ignore=debug.log --ignore=LICENSE --ignore=.eslintrc --ignore=.gitignore --ignore=webpack.config.js --ignore=webpack.release.config.js --ignore=.vscode --overwrite --asar=true --download.mirror=https://npm.taobao.org/mirrors/electron/"
   },
   "author": "Zijin Xiao <ZijinX@outlook.com>",
   "repository": "jxpxxzj/vue-desktop-framework",
